@@ -1,4 +1,4 @@
-module github.com/wil0814/backend-products-go/task-tracker
+module github.com/wil0814/backend-projects-go/task-tracker
 
 go 1.23.4
 
