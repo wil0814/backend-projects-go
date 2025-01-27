@@ -2,13 +2,6 @@
 
 A simple task tracker CLI written in Go.  
 challenge from [roadmap.sh](https://roadmap.sh/projects/task-tracker)
-Sample solution for the [task-tracker](https://roadmap.sh/projects/task-tracker) challenge from [roadmap.sh](https://roadmap.sh).
-
-
-https://roadmap.sh/projects/task-tracker
-## Project URL
-
-https://roadmap.sh/projects/task-tracker
 
 ## Installation
 
