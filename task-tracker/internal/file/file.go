@@ -1,11 +1,12 @@
 package file
 
 import (
-	"backend-products-go/task-tracker/internal/model"
 	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/wil0814/backend-projects-go/task-tracker/internal/model"
 )
 
 const fileName = "tasks.json"

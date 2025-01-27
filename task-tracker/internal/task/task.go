@@ -1,10 +1,11 @@
 package task
 
 import (
-	"backend-products-go/task-tracker/internal/file"
-	"backend-products-go/task-tracker/internal/model"
 	"fmt"
 	"time"
+
+	"github.com/wil0814/backend-projects-go/task-tracker/internal/file"
+	"github.com/wil0814/backend-projects-go/task-tracker/internal/model"
 )
 
 func AddTask(description string) (int64, error) {

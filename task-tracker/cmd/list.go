@@ -1,11 +1,11 @@
 package cmd
 
 import (
-	"backend-products-go/task-tracker/internal/model"
-	"backend-products-go/task-tracker/internal/task"
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/wil0814/backend-projects-go/task-tracker/internal/model"
+	"github.com/wil0814/backend-projects-go/task-tracker/internal/task"
 )
 
 // listCmd represents the list command
