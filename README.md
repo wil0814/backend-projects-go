@@ -7,5 +7,3 @@ Inspired by the examples and recommended practices from [roadmap.sh](https://roa
 ## Table of Contents
 
 - [Task Tracker CLI](./task-tracker)    
-
-https://roadmap.sh/projects/task-tracker
