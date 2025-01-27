@@ -7,7 +7,7 @@ A simple task tracker CLI written in Go.
 To install the task-tracker CLI, run the following command:
 
 ```bash
-go install backend-products-go/task-tracker
+go install github.com/wil0814/backend-projects-go/task-tracker@latest
 ```
 
 ## Usage
