@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"backend-products-go/task-tracker/internal/task"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -16,7 +17,12 @@ var addCmd = &cobra.Command{
 	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		taskName := args[0]
-		fmt.Printf("Task added: %s\n", taskName)
+		id, err := task.AddTask(taskName)
+		if err != nil {
+			fmt.Printf("Failed to add task: %v\n", err)
+			return
+		}
+		fmt.Printf("Task added successfully (ID: %d)\n", id)
 	},
 }
 

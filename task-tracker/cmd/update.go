@@ -1,7 +1,9 @@
 package cmd
 
 import (
+	"backend-products-go/task-tracker/internal/task"
 	"fmt"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -18,7 +20,17 @@ var updateCmd = &cobra.Command{
 		taskID := args[0]
 		taskName := args[1]
 
-		fmt.Printf("Task with ID %s has been updated to: %s\n", taskID, taskName)
+		taskIDInt64, err := strconv.ParseInt(taskID, 10, 64)
+		if err != nil {
+			fmt.Printf("Invalid task ID: %s\n", taskID)
+			return
+		}
+		err = task.UpdateTask(taskIDInt64, taskName)
+		if err != nil {
+			fmt.Printf("Failed to update task: %v\n", err)
+			return
+		}
+		fmt.Printf("Task with ID %s has been updated.\n", taskID)
 	},
 }
 

@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"backend-products-go/task-tracker/internal/model"
+	"backend-products-go/task-tracker/internal/task"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -24,33 +26,63 @@ var listCmd = &cobra.Command{
   task-cli list in-progress`,
 	Args: cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// 判斷是否提供了 status 參數
 		if len(args) == 0 {
-			// 沒有提供 status，列出所有任務
 			fmt.Println("Listing all tasks:")
-			// 模擬列出所有任務的邏輯
-			fmt.Println("1. Task A [todo]")
-			fmt.Println("2. Task B [done]")
-			fmt.Println("3. Task C [in-progress]")
+			tasks, err := task.ListTasks(nil)
+			if err != nil {
+				fmt.Printf("Failed to list tasks: %v\n", err)
+				return
+			}
+			for _, task := range tasks {
+				fmt.Printf("%d. %s [%s]\n", task.ID, task.Description, task.Status)
+			}
 		} else {
-			// 根據提供的 status 過濾任務
 			status := args[0]
 			switch status {
 			case "done":
 				fmt.Println("Listing tasks with status: done")
-				// 模擬列出 "done" 任務
-				fmt.Println("2. Task B [done]")
+				status := model.TaskStatusDone
+				tasks, err := task.ListTasks(&status)
+				if err != nil {
+					fmt.Printf("Failed to list tasks: %v\n", err)
+					return
+				}
+				if len(tasks) == 0 {
+					fmt.Println("No tasks with status: done")
+				}
+				for _, task := range tasks {
+					fmt.Printf("%d. %s [%s]\n", task.ID, task.Description, task.Status)
+				}
 			case "todo":
 				fmt.Println("Listing tasks with status: todo")
-				// 模擬列出 "todo" 任務
-				fmt.Println("1. Task A [todo]")
+				status := model.TaskStatusTodo
+				tasks, err := task.ListTasks(&status)
+				if err != nil {
+					fmt.Printf("Failed to list tasks: %v\n", err)
+					return
+				}
+				if len(tasks) == 0 {
+					fmt.Println("No tasks with status: todo")
+				}
+				for _, task := range tasks {
+					fmt.Printf("%d. %s [%s]\n", task.ID, task.Description, task.Status)
+				}
 			case "in-progress":
 				fmt.Println("Listing tasks with status: in-progress")
-				// 模擬列出 "in-progress" 任務
-				fmt.Println("3. Task C [in-progress]")
+				status := model.TaskStatusInProgress
+				tasks, err := task.ListTasks(&status)
+				if err != nil {
+					fmt.Printf("Failed to list tasks: %v\n", err)
+					return
+				}
+				if len(tasks) == 0 {
+					fmt.Println("No tasks with status: in-progress")
+				}
+				for _, task := range tasks {
+					fmt.Printf("%d. %s [%s]\n", task.ID, task.Description, task.Status)
+				}
 			default:
-				// 無效的 status，提示錯誤
-				fmt.Printf("Invalid status: %s. Valid statuses are: done, todo, in-progress.\n", status)
+				fmt.Printf("Invalid status: %s\n", status)
 			}
 		}
 	},
