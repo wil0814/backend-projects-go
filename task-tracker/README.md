@@ -6,6 +6,10 @@ Sample solution for the [task-tracker](https://roadmap.sh/projects/task-tracker)
 
 
 https://roadmap.sh/projects/task-tracker
+## Project URL
+
+https://roadmap.sh/projects/task-tracker
+
 ## Installation
 
 To install the task-tracker CLI, run the following command:
