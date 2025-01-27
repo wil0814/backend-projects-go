@@ -6,4 +6,5 @@ Inspired by the examples and recommended practices from [roadmap.sh](https://roa
 
 ## Table of Contents
 
-- [Task Tracker CLI](./task-tracker)    
+- [Task Tracker CLI](./task-tracker)  
+  This example was built according to [roadmap.sh](https://roadmap.sh/projects/task-tracker)'s Task Tracker challenge requirements.
